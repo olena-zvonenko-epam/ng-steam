@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '12'
+
+before_install:
+- npm install -g @angular/cli
+install: npm install
+
+before_deploy:
+  - rvm $(travis_internal_ruby) --fuzzy do ruby -S gem install faraday -v 1.9.3
+
+deploy:
+  provider: heroku
+  app: ng-steam
+  on:
+    branch: main
+  api_key: "3ff53dbc-b1aa-4827-b7bb-00ea043d3243"
