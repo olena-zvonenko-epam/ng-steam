@@ -1,0 +1,19 @@
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  gap: 15px;
+
+  width: 320px;
+  height: 340px;
+
+  background: #FFFFFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+  .my-btn {
+    width: 100%;
+  }
+}
