@@ -23,6 +23,7 @@ export class LibraryPageComponent implements OnInit {
       .subscribe((games: Array<GameModel>) => {
         this.games = games;
       });
+
   }
 
 }

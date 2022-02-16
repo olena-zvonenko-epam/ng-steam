@@ -13,6 +13,7 @@ import {GamesService} from "../../shared/games.service";
 export class GamesComponent implements OnInit {
 
   games!: Array<GameModel>;
+
   form = new FormGroup({
     search: new FormControl()
   });
@@ -43,5 +44,6 @@ export class GamesComponent implements OnInit {
 
   addGame(game: GameModel) {
     return this.GamesService.addGame(game);
+
   }
 }
