@@ -6,7 +6,8 @@
   <form [formGroup]="form" (submit)="filter(form.get('search')?.value)">
     <label for="search">Search games</label>
     <br>
-    <input type="text" id="search" placeholder="Search games" formControlName="search">
+    <input type="text" id="search" placeholder="Search games"
+           formControlName="search">
     <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
@@ -14,7 +15,9 @@
   <div class="d-flex gap-3">
     <div class="list-group">
       <app-game class="list-group-item"
-                *ngFor="let game of games"
+                *ngFor="let game of games
+                | gamesFilter: form.get('search')?.value: 'name'
+                | gamesFilter: rangeInputValue: 'price'"
                 [name]="game.name"
                 [price]="game.price"
                 [overview]="game.overview">
@@ -25,24 +28,31 @@
 
     <div class="filters d-flex flex-column">
       <label for="filterByPrice">Filter by price</label>
-      <input type="range" id="filterByPrice" min="0" max="1500" step="100">
-
+      <input type="range" id="filterByPrice"
+             min="0" max="1500" step="100"
+             [(ngModel)]="rangeInputValue"
+      >
+      <p>{{rangeInputValue}}</p>
       <label>Filter by tag</label>
 
-      <label for="indie">
-        <input type="checkbox" id="indie">
-        Indie
-      </label>
-      <label for="action">
-        <input type="checkbox" id="action">
-        Action
-      </label>
+      <div (click)="log(getValue($event))" class="d-flex flex-column">
+        <label for="indie">
+          <input type="checkbox" id="indie" name="indie"
+                 [(ngModel)]="checkboxIndie">
+          Indie
+        </label>
+        <label for="action">
+          <input type="checkbox" id="action" name="action"
+                 [(ngModel)]="checkboxAction">
+          Action
+        </label>
 
-      <label for="adventure">
-        <input type="checkbox" id="adventure">
-        Adventure
-      </label>
-
+        <label for="adventure">
+          <input type="checkbox" id="adventure" name="adventure"
+                 [(ngModel)]="checkboxAdventure">
+          Adventure
+        </label>
+      </div>
     </div>
   </div>
 </div>
