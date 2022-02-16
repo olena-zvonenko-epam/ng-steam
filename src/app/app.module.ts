@@ -13,6 +13,7 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { GamesComponent } from './pages/games/games.component';
 import { GameComponent } from './pages/games/game/game.component';
 import { LibraryPageComponent } from './pages/library-page/library-page.component';
+import { GamesFilterPipe } from './shared/games-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LibraryPageComponent } from './pages/library-page/library-page.componen
     ProfilePageComponent,
     GamesComponent,
     GameComponent,
-    LibraryPageComponent
+    LibraryPageComponent,
+    GamesFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,7 @@ import { LibraryPageComponent } from './pages/library-page/library-page.componen
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
