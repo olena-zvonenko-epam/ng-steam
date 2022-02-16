@@ -1,0 +1,116 @@
+{
+  "games": [
+    {
+      "id": 1,
+      "name": "Total War: WARHAMMER III",
+      "overview": "The cataclysmic conclusion to the Total War: WARHAMMER trilogy is coming. Rally your forces and step into the Realm of Chaos, a dimension of mind-bending horror where the very fate of the world will be decided. Will you conquer your Daemons… or command them?",
+      "price": 1299,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ELDEN RING",
+      "overview": "The cataclysmic conclusion to the Total War: WARHAMMER trilogy is coming. Rally your forces and step into the Realm of Chaos, a dimension of mind-bending horror where the very fate of the world will be decided. Will you conquer your Daemons… or command them?",
+      "price": 799,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Dying Light 2 Stay Human",
+      "overview": "The virus won and civilization has fallen back to the Dark Ages. The City, one of the last human settlements, is on the brink of collapse. Use your agility and combat skills to survive, and reshape the world. Your choices matter.",
+      "price": 899,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Dread Hunger",
+      "overview": "A game of survival and betrayal. Eight Explorers path their ship through the unforgiving Arctic. Among the crew, two traitors call on dark powers to undermine them.",
+      "price": 379,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Vampire Survivors",
+      "overview": "Mow thousands of night creatures and survive until dawn! Vampire Survivors is a gothic horror casual game with rogue-lite elements, where your choices can allow you to quickly snowball against the hundreds of monsters that get thrown at you.",
+      "price": 599,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Borderlands 3",
+      "overview": "The original shooter-looter returns, packing bazillions of guns and a mayhem-fueled adventure! Blast through new worlds and enemies as one of four new Vault Hunters.",
+      "price": 849,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    }
+  ],
+  "library": [
+    {
+      "id": 1,
+      "name": "Total War: WARHAMMER III",
+      "overview": "The cataclysmic conclusion to the Total War: WARHAMMER trilogy is coming. Rally your forces and step into the Realm of Chaos, a dimension of mind-bending horror where the very fate of the world will be decided. Will you conquer your Daemons… or command them?",
+      "price": 1299,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Borderlands 3",
+      "overview": "The original shooter-looter returns, packing bazillions of guns and a mayhem-fueled adventure! Blast through new worlds and enemies as one of four new Vault Hunters.",
+      "price": 849,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "ELDEN RING",
+      "overview": "The cataclysmic conclusion to the Total War: WARHAMMER trilogy is coming. Rally your forces and step into the Realm of Chaos, a dimension of mind-bending horror where the very fate of the world will be decided. Will you conquer your Daemons… or command them?",
+      "price": 799,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Dying Light 2 Stay Human",
+      "overview": "The virus won and civilization has fallen back to the Dark Ages. The City, one of the last human settlements, is on the brink of collapse. Use your agility and combat skills to survive, and reshape the world. Your choices matter.",
+      "price": 899,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
+    }
+  ]
+}
