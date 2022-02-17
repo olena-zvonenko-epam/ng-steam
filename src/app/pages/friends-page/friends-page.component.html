@@ -1,9 +1,35 @@
 <app-home-page></app-home-page>
 
-<app-friend>
-  <div class="d-flex justify-content-between">
-    <h4>Friend Name</h4>
+
+
+<form [formGroup]="form" (submit)="filter(form.get('search')?.value)">
+  <label for="search">Search games</label>
+  <br>
+  <input type="text" id="search" placeholder="Search games"
+         (keyup)="log(form.get('search')?.value.length)"
+         formControlName="search">
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<div *ngIf="form.get('search')?.value?.length;
+     then personTemplate
+     else friendsTemplate">
+
+</div>
+<ng-template #personTemplate>
+  <app-friend
+    *ngFor="let person of people"
+    [name]="person.name">
+    <button class="btn btn-primary">Add Friend</button>
+  </app-friend>
+</ng-template>
+
+<ng-template #friendsTemplate>
+  <app-friend
+    *ngFor="let friend of friends"
+    [name]="friend.name">
     <button class="btn btn-danger">Remove Friend</button>
-  </div>
-</app-friend>
+  </app-friend>
+</ng-template>
+
 
