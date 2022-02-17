@@ -5,6 +5,7 @@ import {HomePageComponent} from "./pages/home-page/home-page.component";
 import {ProfilePageComponent} from "./pages/profile-page/profile-page.component";
 import {GamesComponent} from "./pages/games/games.component";
 import {LibraryPageComponent} from "./pages/library-page/library-page.component";
+import {FriendsPageComponent} from "./pages/friends-page/friends-page.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login-page', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'profile-page', component: ProfilePageComponent},
   {path: 'games', component: GamesComponent},
   {path: 'library', component: LibraryPageComponent},
+  {path: 'friends-page', component: FriendsPageComponent},
 ];
 
 @NgModule({

@@ -33,6 +33,7 @@ export class GamesComponent implements OnInit {
   }
 
   getGames() {
+    this.games = [];
     this.GamesService.getGames()
       .subscribe((games: Array<GameModel>) => {
         games.map(game => this.games.push(game))
@@ -55,7 +56,7 @@ export class GamesComponent implements OnInit {
   }
 
   getValue(event: Event): string {
-    return (event.target as HTMLInputElement).name;
+    return (event.target as HTMLInputElement).value;
   }
 
   log(item: any) {

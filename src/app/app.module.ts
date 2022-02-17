@@ -14,6 +14,8 @@ import { GamesComponent } from './pages/games/games.component';
 import { GameComponent } from './pages/games/game/game.component';
 import { LibraryPageComponent } from './pages/library-page/library-page.component';
 import { GamesFilterPipe } from './shared/games-filter.pipe';
+import { FriendsPageComponent } from './pages/friends-page/friends-page.component';
+import { FriendComponent } from './pages/friends-page/friend/friend.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { GamesFilterPipe } from './shared/games-filter.pipe';
     GamesComponent,
     GameComponent,
     LibraryPageComponent,
-    GamesFilterPipe
+    GamesFilterPipe,
+    FriendsPageComponent,
+    FriendComponent
   ],
   imports: [
     BrowserModule,
