@@ -56,9 +56,11 @@ export class FriendsPageComponent implements OnInit {
 
   addFriend(person: PersonModel) {
     this.friendsService.addFriend(person);
-    console.log(this.friends.find(friend => friend.id !== person.id));
-
-      this.friends.push(person);
+    setTimeout(() => {
+      if(!this.friends.find(friend => friend.id === person.id)) {
+        this.friends.push(person);
+      }
+    }, 0);
   }
 
   log(item: any) {
