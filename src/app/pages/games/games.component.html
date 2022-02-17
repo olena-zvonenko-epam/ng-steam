@@ -13,7 +13,7 @@
 
   <h3>Featured Games</h3>
   <div class="d-flex gap-3">
-    <div class="list-group">
+    <div class="list-group" style="width:75%">
       <app-game class="list-group-item"
                 *ngFor="let game of games
                 | gamesFilter: form.get('search')?.value: 'name'
@@ -26,30 +26,27 @@
       </app-game>
     </div>
 
-    <div class="filters d-flex flex-column">
+    <div class="filters d-flex flex-column" style="width:25%">
       <label for="filterByPrice">Filter by price</label>
       <input type="range" id="filterByPrice"
              min="0" max="1500" step="100"
              [(ngModel)]="rangeInputValue"
       >
-      <p>{{rangeInputValue}}</p>
+      <p class="align-self-center">{{rangeInputValue}}</p>
       <label>Filter by tag</label>
 
-      <div (click)="log(getValue($event))" class="d-flex flex-column">
+      <div  class="d-flex flex-column">
         <label for="indie">
-          <input type="checkbox" id="indie" name="indie"
-                 [(ngModel)]="checkboxIndie">
+          <input type="checkbox" id="indie" name="indie">
           Indie
         </label>
         <label for="action">
-          <input type="checkbox" id="action" name="action"
-                 [(ngModel)]="checkboxAction">
+          <input type="checkbox" id="action" name="action">
           Action
         </label>
 
         <label for="adventure">
-          <input type="checkbox" id="adventure" name="adventure"
-                 [(ngModel)]="checkboxAdventure">
+          <input type="checkbox" id="adventure" name="adventure">
           Adventure
         </label>
       </div>
