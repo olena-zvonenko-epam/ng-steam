@@ -2,11 +2,11 @@
 
 
 
-<form [formGroup]="form" (submit)="filter(form.get('search')?.value)">
+<form [formGroup]="form"
+      (submit)="filter(form.get('search')?.value)">
   <label for="search">Search games</label>
   <br>
   <input type="text" id="search" placeholder="Search games"
-         (keyup)="log(form.get('search')?.value.length)"
          formControlName="search">
   <button type="submit" class="btn btn-primary">Search</button>
 </form>
@@ -18,9 +18,11 @@
 </div>
 <ng-template #personTemplate>
   <app-friend
-    *ngFor="let person of people"
+    *ngFor="let person of people | peopleFilter: form.get('search')?.value"
     [name]="person.name">
-    <button class="btn btn-primary">Add Friend</button>
+    <button class="btn btn-primary"
+            (click)="addFriend(person)"
+    >Add Friend</button>
   </app-friend>
 </ng-template>
 
@@ -28,7 +30,9 @@
   <app-friend
     *ngFor="let friend of friends"
     [name]="friend.name">
-    <button class="btn btn-danger">Remove Friend</button>
+    <button class="btn btn-danger"
+            (click)="removeFriend(friend)"
+    >Remove Friend</button>
   </app-friend>
 </ng-template>
 

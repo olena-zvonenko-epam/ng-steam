@@ -50,10 +50,23 @@ export class FriendsPageComponent implements OnInit {
       });
     } else {
       this.getPeople()
+
     }
+  }
+
+  addFriend(person: PersonModel) {
+    this.friendsService.addFriend(person);
+    console.log(this.friends.find(friend => friend.id !== person.id));
+
+      this.friends.push(person);
   }
 
   log(item: any) {
     console.log(item)
+  }
+
+  removeFriend(person: PersonModel) {
+    this.friendsService.removeFriend(person);
+    this.friends = this.friends.filter(friend => friend.id !== person.id)
   }
 }

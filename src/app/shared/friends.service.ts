@@ -37,4 +37,17 @@ export class FriendsService {
       });
   }
 
+  removeFriend(person: PersonModel) {
+    this.getFriends()
+      .subscribe(friends => {
+        if(friends.find(friend => friend.id === person.id)) {
+          alert(`${person.name} was removed from your friends` );
+          return this.http.delete(`${this.url}/friends/${person.id}`, this.httpOptions)
+            .subscribe(person => console.log(person))
+        } else {
+          return alert(`${person.name} is not your friend` );
+        }
+      });
+  }
+
 }
