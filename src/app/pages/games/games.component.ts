@@ -26,7 +26,7 @@ export class GamesComponent implements OnInit {
   });
 
 
-  constructor(private GamesService: GamesService) { }
+  constructor(private gamesService: GamesService) { }
 
   ngOnInit(): void {
     this.getGames()
@@ -34,7 +34,7 @@ export class GamesComponent implements OnInit {
 
   getGames() {
     this.games = [];
-    this.GamesService.getGames()
+    this.gamesService.getGames()
       .subscribe((games: Array<GameModel>) => {
         games.map(game => this.games.push(game))
       });
@@ -52,7 +52,7 @@ export class GamesComponent implements OnInit {
   }
 
   addGame(game: GameModel) {
-    return this.GamesService.addGame(game);
+    return this.gamesService.addGame(game);
   }
 
   getValue(event: Event): string {
