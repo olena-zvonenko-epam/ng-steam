@@ -10,13 +10,13 @@ import {FormControl, FormGroup} from "@angular/forms";
 })
 export class ProfilePageComponent implements OnInit {
 
-  // form = new FormGroup({
-  //   username: new FormControl(),
-  //   email: new FormControl(),
-  //   age: new FormControl(),
-  // });
+  form = new FormGroup({
+    username: new FormControl(),
+    email: new FormControl(),
+    age: new FormControl(),
+  });
 
-  form!: FormGroup;
+  // form!: FormGroup;
 
   user!: UserModel
 

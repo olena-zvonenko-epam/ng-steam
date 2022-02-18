@@ -139,16 +139,16 @@
   ],
   "friends": [
     {
-      "id": 4,
-      "name": "Ashley"
-    },
-    {
       "id": 3,
       "name": "John"
     },
     {
       "id": 5,
       "name": "James"
+    },
+    {
+      "id": 4,
+      "name": "Ashley"
     }
   ]
 }
