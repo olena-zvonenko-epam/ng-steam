@@ -23,6 +23,8 @@ export class GamesFilterPipe implements PipeTransform {
           .toLowerCase().indexOf(searchItem.toLowerCase()) !== -1
       });
     }
+
+
   }
 
 }

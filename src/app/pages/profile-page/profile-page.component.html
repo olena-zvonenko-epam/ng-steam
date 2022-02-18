@@ -1,26 +1,30 @@
 <app-home-page></app-home-page>
 
 <div class="container d-flex justify-content-center">
-  <form class="profile-form">
+  <form class="profile-form" [formGroup]="form">
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Username"
-             class="form-control">
+      <input type="text" id="username" placeholder="Username" class="form-control"
+             formControlName="username"
+             [value]="user.username">
     </div>
 
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" id="email" placeholder="Email"
-             class="form-control">
+      <input type="text" id="email" placeholder="Email" class="form-control"
+
+             [value]="user.email">
     </div>
 
     <div class="form-group">
       <label for="age">Age</label>
-      <input type="text" id="age" placeholder="Age"
-             class="form-control">
+      <input type="number" id="age" placeholder="Age" class="form-control"
+             formControlName="age"
+             [value]="user.age">
     </div>
 
-    <button class="btn btn-primary my-btn" type="submit">
+    <button class="btn btn-primary my-btn" type="button"
+            (click)="onSave(form)">
       Save
     </button>
   </form>

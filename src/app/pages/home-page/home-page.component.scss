@@ -1,9 +1,18 @@
 .my-navbar {
   display: flex !important;
   justify-content: flex-start !important;
+  background: ghostwhite !important;
+
   ul {
     display: flex !important;
     flex-direction: row !important;
     gap: 15px;
+
+    li {
+      a {
+        font-weight: bold;
+        color: lightslategrey;
+      }
+    }
   }
 }
