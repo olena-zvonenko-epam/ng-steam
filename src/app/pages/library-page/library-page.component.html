@@ -1,12 +1,16 @@
 <app-home-page></app-home-page>
-<h3>My Games</h3>
-<div class="list-group">
-  <app-game class="list-group-item"
-            *ngFor="let game of games"
-            [name]="game.name"
-            [price]="game.price"
-            [overview]="game.overview">
-    <button class="btn btn-primary">Download</button>
-    <button class="btn btn-secondary">Share</button>
-  </app-game>
+
+<div class="container">
+  <h3>My Games</h3>
+  <div class="list-group">
+    <app-game class="list-group-item"
+              *ngFor="let game of games"
+              [name]="game.name"
+              [price]="game.price"
+              [overview]="game.overview">
+      <button class="btn btn-primary">Download</button>
+      <button class="btn btn-secondary">Share</button>
+    </app-game>
+  </div>
 </div>
+

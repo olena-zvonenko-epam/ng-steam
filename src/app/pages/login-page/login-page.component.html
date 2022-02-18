@@ -1,9 +1,7 @@
 
 
 <div class="container d-flex justify-content-center">
-  <form
-    [formGroup]="form"
-    (submit)="onSubmit(form.get('email')?.value)"
+  <form [formGroup]="form"
     class="form">
     <div class="form-group">
       <label for="email">Email</label>
@@ -35,7 +33,8 @@
       </p>
     </div>
 
-    <button class="btn btn-primary my-btn" type="submit"
+    <button class="btn btn-primary my-btn" type="button"
+            (click)="onSubmit(form.get('email')?.value)"
             [disabled]="form.invalid" routerLink="/home-page">
       Sign in
     </button>

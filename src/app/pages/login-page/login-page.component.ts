@@ -27,8 +27,7 @@ export class LoginPageComponent implements OnInit {
 
 
   onSubmit(email: any) {
-    console.log(email);
-    // this.userService.updateUserEmail(email)
+    this.userService.updateUserEmail(email)
   }
 
   checkLength(control: FormControl) {

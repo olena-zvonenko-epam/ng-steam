@@ -6,7 +6,11 @@ import {UserModel} from "./user.model";
 })
 export class UserService {
 
-  user!: UserModel;
+  private user: UserModel = {
+    username: '',
+    email: '',
+    age: ''
+  }
 
   constructor() { }
 
@@ -14,10 +18,15 @@ export class UserService {
     this.user.email = email;
   }
 
-  updateUserData(username: string, email: string, age: string) {
-    this.user.username = username;
-    this.user.email = email;
-    this.user.age = age;
+  updateUserData(user: UserModel) {
+    this.user.username = user.username;
+    this.user.email = user.email;
+    this.user.age = user.age;
+    console.log(user);
+  }
+
+  getUserData() {
+    return this.user;
   }
 
 }

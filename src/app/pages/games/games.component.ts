@@ -15,16 +15,17 @@ export class GamesComponent implements OnInit {
   games = new Array<GameModel>();
 
   @Input() searchValue!: string;
-
   @Input() rangeInputValue!: number;
-  @Input() checkboxIndie!: any;
-  @Input() checkboxAction!: any;
-  @Input() checkboxAdventure!: any;
 
   form = new FormGroup({
     search: new FormControl()
   });
 
+  checkboxGroup = new FormGroup({
+    indie: new FormControl(),
+    action: new FormControl(),
+    adventure: new FormControl()
+  });
 
   constructor(private gamesService: GamesService) { }
 
@@ -55,8 +56,8 @@ export class GamesComponent implements OnInit {
     return this.gamesService.addGame(game);
   }
 
-  getValue(event: Event): string {
-    return (event.target as HTMLInputElement).value;
+  getValue(event: Event): any {
+    return (event.target as HTMLInputElement);
   }
 
   log(item: any) {
