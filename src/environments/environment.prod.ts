@@ -1,3 +1,7 @@
-export const environment = {
-  production: true
+import {Environment} from "./interfase";
+
+export const environment: Environment = {
+  production: true,
+  apiKey: 'AIzaSyCPl8hlSqAsqvWCvxH283jxmjPhBfkeKD0',
+  FbDbUrl: 'https://ng-steam-default-rtdb.europe-west1.firebasedatabase.app'
 };
