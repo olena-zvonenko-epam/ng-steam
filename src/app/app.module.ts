@@ -17,6 +17,7 @@ import { GamesFilterPipe } from './shared/games-filter.pipe';
 import { FriendsPageComponent } from './pages/friends-page/friends-page.component';
 import { FriendComponent } from './pages/friends-page/friend/friend.component';
 import { PeopleFilterPipe } from './shared/people-filter.pipe';
+import { FilterByTagPipe } from './shared/filter-by-tag.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PeopleFilterPipe } from './shared/people-filter.pipe';
     GamesFilterPipe,
     FriendsPageComponent,
     FriendComponent,
-    PeopleFilterPipe
+    PeopleFilterPipe,
+    FilterByTagPipe
   ],
   imports: [
     BrowserModule,

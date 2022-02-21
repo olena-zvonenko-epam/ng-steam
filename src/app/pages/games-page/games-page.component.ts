@@ -13,8 +13,7 @@ import {GamesService} from "../../shared/games.service";
 export class GamesPageComponent implements OnInit {
 
   games = new Array<GameModel>();
-  priceMinMax = new Array<string>();
-
+  tags = new Array<string>();
 
   @Input() searchValue!: string;
   @Input() rangeInputValue!: number;
@@ -33,7 +32,6 @@ export class GamesPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getGames();
-
   }
 
   getGames() {
@@ -63,8 +61,11 @@ export class GamesPageComponent implements OnInit {
     return (event.target as HTMLInputElement);
   }
 
-  log(item: any) {
-    console.log(typeof item, item);
+  log(item: any): void {
+    console.log(this.checkboxGroup.get(`${item}`)?.value);
+    this.checkboxGroup.get(`${item}`)?.value ?
+      this.tags.push(item) : this.tags = this.tags.filter(tag => tag !== item);
+
   }
 
   getMinPrice(arr: GameModel[]): string {
@@ -73,8 +74,5 @@ export class GamesPageComponent implements OnInit {
 
   getMaxPrice(arr: GameModel[]): string {
     return String(Math.max(...arr.map(item => item.price)));
-
   }
-
-
 }
