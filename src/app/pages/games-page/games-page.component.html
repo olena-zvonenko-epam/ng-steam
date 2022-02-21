@@ -31,8 +31,9 @@
 
     <div class="filters d-flex flex-column" style="width:25%">
       <label for="filterByPrice">Filter by price</label>
-      <input type="range" id="filterByPrice"
-             min="0" max="1500" step="100"
+      <input type="range" id="filterByPrice" step="10"
+             [min]="getMinPrice(games)"
+             [max]="getMaxPrice(games)"
              [(ngModel)]="rangeInputValue"
       >
       <p class="align-self-center">{{rangeInputValue}}</p>

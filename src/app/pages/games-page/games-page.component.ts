@@ -13,6 +13,8 @@ import {GamesService} from "../../shared/games.service";
 export class GamesPageComponent implements OnInit {
 
   games = new Array<GameModel>();
+  priceMinMax = new Array<string>();
+
 
   @Input() searchValue!: string;
   @Input() rangeInputValue!: number;
@@ -30,7 +32,8 @@ export class GamesPageComponent implements OnInit {
   constructor(private gamesService: GamesService) { }
 
   ngOnInit(): void {
-    this.getGames()
+    this.getGames();
+
   }
 
   getGames() {
@@ -63,5 +66,15 @@ export class GamesPageComponent implements OnInit {
   log(item: any) {
     console.log(typeof item, item);
   }
+
+  getMinPrice(arr: GameModel[]): string {
+    return String(Math.min(...arr.map(item => item.price)));
+  }
+
+  getMaxPrice(arr: GameModel[]): string {
+    return String(Math.max(...arr.map(item => item.price)));
+
+  }
+
 
 }
