@@ -17,14 +17,12 @@ export class FriendsPageComponent implements OnInit {
     search: new FormControl()
   });
 
-
   constructor(private friendsService: FriendsService) { }
 
   ngOnInit(): void {
     this.getFriends();
     this.getPeople();
   }
-
 
   getFriends() {
     this.friends = [];

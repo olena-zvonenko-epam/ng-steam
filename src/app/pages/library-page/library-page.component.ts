@@ -10,7 +10,7 @@ import {GamesService} from "../../shared/games.service";
 })
 export class LibraryPageComponent implements OnInit {
 
-  games!: Array<GameModel>;
+  games = new Array<GameModel>();
 
   constructor(private GamesService: GamesService) { }
 
@@ -21,7 +21,9 @@ export class LibraryPageComponent implements OnInit {
   getGames() {
     this.GamesService.getLibrary()
       .subscribe((games: Array<GameModel>) => {
-        this.games = games;
+        for (const gamesKey in games) {
+          this.games.push(games[gamesKey])
+        }
       });
 
   }
