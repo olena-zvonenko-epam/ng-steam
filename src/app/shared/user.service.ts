@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { UserModel } from "./user.model";
-import {catchError, map, Observable} from "rxjs";
-import {environment} from "../../environments/environment";
-import {tap} from "rxjs/operators";
-import {HttpClient} from "@angular/common/http";
+import { UserModel } from './user.model';
+import { mergeMap, Observable} from 'rxjs';
+import { environment } from '../../environments/environment';
+import { tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,23 +11,31 @@ import {HttpClient} from "@angular/common/http";
 export class UserService {
 
   user!: UserModel;
-  token!: string;
+  uid: string = localStorage.getItem('fb-uid') || '';
 
   constructor(private http:HttpClient) { }
 
-  getUser(user: UserModel): Observable<any> {
-    this.token = localStorage.getItem('fb-token') || '';
-    const us = {
-      ...user,
-      idToken: this.token,
-      displayName: 'test',
-      deleteAttribute: 'PHOTO_URL'
+  getUser(): Observable<any> {
+    return this.http.get<any>(`${environment.FbDbUrl}/users/${this.uid}.json`);
+  }
 
-    }
-    return this.http.post<any>(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${environment.apiKey}`, us)
+  updateUser(user:UserModel): Observable<any> {
+    return this.http
+      .patch<any>(`${environment.FbDbUrl}/users/${this.uid}.json`, user)
       .pipe(
-        tap(console.log),
-        map(val => localStorage.setItem('fb-token', val.idToken))
+          mergeMap(response => {
+          delete response.age;
+          response.idToken = localStorage.getItem('fb-token');
+          response.returnSecureToken = true;
+          return this.http.post<any>(`${environment.FbAuthUrl}:update?key=${environment.apiKey}`, response)
+            .pipe(
+              tap(response => {
+                if(response?.idToken) {
+                  localStorage.setItem('fb-token', response.idToken);
+                }
+              })
+            )
+        })
       )
   }
 }

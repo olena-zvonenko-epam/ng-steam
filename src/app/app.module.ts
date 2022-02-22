@@ -1,15 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
+import { AuthInterceptor } from './shared/auth.interceptor';
 import { HeaderComponent } from './shared/header/header.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { GamesPageComponent } from './pages/games-page/games-page.component';
@@ -20,6 +21,12 @@ import { FriendsPageComponent } from './pages/friends-page/friends-page.componen
 import { FriendComponent } from './pages/friends-page/friend/friend.component';
 import { PeopleFilterPipe } from './shared/people-filter.pipe';
 import { FilterByTagPipe } from './shared/filter-by-tag.pipe';
+
+const INTERCEPTOR_PROVIDER: Provider = {
+  provide: HTTP_INTERCEPTORS,
+  multi: true,
+  useClass: AuthInterceptor
+}
 
 @NgModule({
   declarations: [
@@ -43,9 +50,9 @@ import { FilterByTagPipe } from './shared/filter-by-tag.pipe';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, INTERCEPTOR_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
