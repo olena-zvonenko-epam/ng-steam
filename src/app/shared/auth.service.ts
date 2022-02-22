@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import { FbAuthResponse, UserModel } from "./user.model";
-import {catchError, Observable, Subject, throwError} from "rxjs";
-import { environment } from "../../environments/environment";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FbAuthResponse, UserModel } from './user.model';
+import { catchError, Observable, Subject, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { tap } from 'rxjs/operators';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class AuthService {
       )
   }
 
-  logout() {
+  logout(): void {
     this.setToken(null);
   }
 
@@ -66,6 +66,5 @@ export class AuthService {
     } else {
       localStorage.clear();
     }
-
   }
 }
