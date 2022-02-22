@@ -11,7 +11,6 @@
     <input type="text" id="search" style="width: 100%"
            placeholder="Search games"
            formControlName="search">
-<!--    <button type="submit" class="btn btn-primary">Search</button>-->
   </form>
 
   <h3>Featured Games</h3>
@@ -38,30 +37,30 @@
       >
       <p class="align-self-center">{{rangeInputValue}}</p>
 
-      <form [formGroup]="checkboxGroup">
+      <form [formGroup]="checkboxGroup" (change)="changeCheckbox($event)">
         <label>Filter by tag</label>
 
         <div  class="d-flex flex-column">
           <label for="indie">
             <input type="checkbox" id="indie" name="indie"
                    formControlName="indie"
-                   (change)="log('indie')">
+            >
             Indie
           </label>
+
           <label for="action">
             <input type="checkbox" id="action" name="action"
                    formControlName="action"
-                   (change)="log('action')">
+            >
             Action
           </label>
 
           <label for="adventure">
             <input type="checkbox" id="adventure" name="adventure"
                    formControlName="adventure"
-                   (change)="log('adventure')">
+             >
             Adventure
           </label>
-
         </div>
       </form>
     </div>

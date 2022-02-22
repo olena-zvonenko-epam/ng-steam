@@ -61,18 +61,17 @@ export class GamesPageComponent implements OnInit {
     return (event.target as HTMLInputElement);
   }
 
-  log(item: any): void {
-    console.log(this.checkboxGroup.get(`${item}`)?.value);
-    this.checkboxGroup.get(`${item}`)?.value ?
-      this.tags.push(item) : this.tags = this.tags.filter(tag => tag !== item);
-
-  }
-
   getMinPrice(arr: GameModel[]): string {
     return String(Math.min(...arr.map(item => item.price)));
   }
 
   getMaxPrice(arr: GameModel[]): string {
     return String(Math.max(...arr.map(item => item.price)));
+  }
+
+  changeCheckbox(event: any) {
+    event.target.checked ?
+      this.tags.push(event.target.name) :
+      this.tags = this.tags.filter(tag => tag !== event.target.name);
   }
 }
