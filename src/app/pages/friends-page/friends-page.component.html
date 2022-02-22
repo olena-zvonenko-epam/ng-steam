@@ -1,56 +1,9 @@
 <app-home-page></app-home-page>
 
-<div class="container">
-  <h4>Friends</h4>
-
-  <form class="mb-3"
-        [formGroup]="form"
-        (submit)="filter(form.get('search')?.value)">
-    <label for="search">Search friends</label>
-    <br>
-    <input type="text" id="search"
-           style="width: 100%"
-           placeholder="Search friends"
-           formControlName="search">
-    <!--  <button type="submit" class="btn btn-primary">Search</button>-->
-  </form>
-
-  <h3>My Friends</h3>
-
-  <div *ngIf="form.get('search')?.value?.length;
-     then personTemplate
-     else friendsTemplate"
-  >
+<app-friend>
+  <div class="d-flex justify-content-between">
+    <h4>Friend Name</h4>
+    <button class="btn btn-danger">Remove Friend</button>
   </div>
-
-
-  <ng-template #personTemplate >
-    <div class="list-group">
-      <app-friend class="list-group-item"
-                  *ngFor="let person of people | peopleFilter: form.get('search')?.value"
-                  [name]="person.name">
-        <button class="btn btn-primary"
-                (click)="addFriend(person)"
-        >Add Friend</button>
-      </app-friend>
-    </div>
-
-  </ng-template>
-
-  <ng-template #friendsTemplate>
-    <div class="list-group">
-      <app-friend class="list-group-item d-flex justify-content-between align-items-center"
-                  *ngFor="let friend of friends"
-                  [name]="friend.name">
-        <button class="btn btn-danger"
-                (click)="removeFriend(friend)"
-        >Remove Friend</button>
-      </app-friend>
-    </div>
-  </ng-template>
-</div>
-
-
-
-
+</app-friend>
 

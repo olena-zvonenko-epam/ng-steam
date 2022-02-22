@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-friend',
@@ -6,8 +6,6 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./friend.component.css']
 })
 export class FriendComponent implements OnInit {
-
-  @Input() name!: string;
 
   constructor() { }
 

@@ -15,19 +15,18 @@ export class GamesComponent implements OnInit {
   games = new Array<GameModel>();
 
   @Input() searchValue!: string;
+
   @Input() rangeInputValue!: number;
+  @Input() checkboxIndie!: any;
+  @Input() checkboxAction!: any;
+  @Input() checkboxAdventure!: any;
 
   form = new FormGroup({
     search: new FormControl()
   });
 
-  checkboxGroup = new FormGroup({
-    indie: new FormControl(),
-    action: new FormControl(),
-    adventure: new FormControl()
-  });
 
-  constructor(private gamesService: GamesService) { }
+  constructor(private GamesService: GamesService) { }
 
   ngOnInit(): void {
     this.getGames()
@@ -35,7 +34,7 @@ export class GamesComponent implements OnInit {
 
   getGames() {
     this.games = [];
-    this.gamesService.getGames()
+    this.GamesService.getGames()
       .subscribe((games: Array<GameModel>) => {
         games.map(game => this.games.push(game))
       });
@@ -53,11 +52,11 @@ export class GamesComponent implements OnInit {
   }
 
   addGame(game: GameModel) {
-    return this.gamesService.addGame(game);
+    return this.GamesService.addGame(game);
   }
 
-  getValue(event: Event): any {
-    return (event.target as HTMLInputElement);
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
   }
 
   log(item: any) {

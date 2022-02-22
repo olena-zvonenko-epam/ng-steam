@@ -1,17 +1,14 @@
 <app-home-page></app-home-page>
 
-<div class="container">
-  <h4>Games</h4>
+<div class="container m-3">
+  <h3>Games</h3>
 
-  <form class="mb-3"
-        [formGroup]="form"
-        (submit)="filter(form.get('search')?.value)">
+  <form [formGroup]="form" (submit)="filter(form.get('search')?.value)">
     <label for="search">Search games</label>
     <br>
-    <input type="text" id="search" style="width: 100%"
-           placeholder="Search games"
+    <input type="text" id="search" placeholder="Search games"
            formControlName="search">
-<!--    <button type="submit" class="btn btn-primary">Search</button>-->
+    <button type="submit" class="btn btn-primary">Search</button>
   </form>
 
   <h3>Featured Games</h3>
@@ -36,33 +33,23 @@
              [(ngModel)]="rangeInputValue"
       >
       <p class="align-self-center">{{rangeInputValue}}</p>
+      <label>Filter by tag</label>
 
-      <form [formGroup]="checkboxGroup">
-        <label>Filter by tag</label>
+      <div  class="d-flex flex-column">
+        <label for="indie">
+          <input type="checkbox" id="indie" name="indie">
+          Indie
+        </label>
+        <label for="action">
+          <input type="checkbox" id="action" name="action">
+          Action
+        </label>
 
-        <div  class="d-flex flex-column">
-          <label for="indie">
-            <input type="checkbox" id="indie" name="indie"
-                   formControlName="indie"
-                   (change)="log(checkboxGroup.get('indie')?.value)">
-            Indie
-          </label>
-          <label for="action">
-            <input type="checkbox" id="action" name="action"
-                   formControlName="action"
-                   (change)="log(checkboxGroup.get('action')?.value)">
-            Action
-          </label>
-
-          <label for="adventure">
-            <input type="checkbox" id="adventure" name="adventure"
-                   formControlName="adventure"
-                   (change)="log(checkboxGroup.get('adventure')?.value)">
-            Adventure
-          </label>
-
-        </div>
-      </form>
+        <label for="adventure">
+          <input type="checkbox" id="adventure" name="adventure">
+          Adventure
+        </label>
+      </div>
     </div>
   </div>
 </div>

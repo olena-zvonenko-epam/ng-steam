@@ -110,45 +110,5 @@
         "Adventure"
       ]
     }
-  ],
-  "people": [
-    {
-      "id": 1,
-      "name": "Pete"
-    },
-    {
-      "id": 2,
-      "name": "Sam"
-    },
-    {
-      "id": 3,
-      "name": "John"
-    },
-    {
-      "id": 4,
-      "name": "Ashley"
-    },
-    {
-      "id": 5,
-      "name": "James"
-    },
-    {
-      "id": 6,
-      "name": "Max"
-    }
-  ],
-  "friends": [
-    {
-      "id": 4,
-      "name": "Ashley"
-    },
-    {
-      "id": 3,
-      "name": "John"
-    },
-    {
-      "id": 5,
-      "name": "James"
-    }
   ]
 }
