@@ -1,43 +1,56 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100 flex-column">
+  <div class="alert alert-info mb-2" *ngIf="message">
+    {{message}}
+  </div>
 
-
-<div class="container d-flex justify-content-center">
-  <form [formGroup]="form"
+  <form
+    [formGroup]="form"
+    (submit)="submit()"
     class="form">
-    <div class="form-group">
+    <h2>Sign In</h2>
+
+    <div
+      [ngClass]="{'text-danger': form.get('email')?.touched && form.get('email')?.invalid}"
+      class="form-group">
       <label for="email">Email</label>
-      <input type="text" id="email" name="email"
-             formControlName="email" required
-             class="form-control" placeholder="Email"
-             [ngClass]="{'is-invalid': form.get('email')?.invalid &&
-                 form.get('email')?.touched}">
-
-      <p *ngIf="form.get('email')?.invalid &&
-             form.get('email')?.touched">
-        Please enter correct email
-      </p>
+      <input class="form-control" type="email"
+             id="email" placeholder="Email"
+             formControlName="email"
+             [ngClass]="{'is-invalid': form.get('email')?.invalid && form.get('email')?.touched}">
+      <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid" class="validation">
+        <span *ngIf="form.get('email')?.errors?.['required']">Email is required</span>
+        <span *ngIf="form.get('email')?.errors?.['email']">Check your email </span>
+      </div>
     </div>
 
-    <div class="form-group">
+    <div
+      [ngClass]="{'text-danger': form.get('password')?.touched && form.get('password')?.invalid}"
+      class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" formControlName="password"
-             class="form-control" placeholder="Password"
-             [ngClass]="{'is-invalid': form.get('password')?.invalid &&
-                 form.get('password')?.touched}">
-
-      <p *ngIf="form.get('password')?.invalid &&
-         form.get('password')?.touched">
-        <span *ngIf="form.get('password')?.errors?.['required']"
-        >Please enter your password, </span>
-        <span *ngIf="form.get('password')?.errors?.['lengthError']"
-        >Password should not be less than {{charsCount}} symbols</span>
-      </p>
+      <input class="form-control" type="password"
+             id="password" placeholder="Password"
+             formControlName="password"
+             [ngClass]="{'is-invalid': form.get('password')?.invalid && form.get('password')?.touched}">
+      <div *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="validation">
+        <span *ngIf="form.get('password')?.errors?.['required']">Password is required </span>
+        <span *ngIf="form.get('password')?.errors?.['minlength']">
+          Password length should be
+          {{form.get('password')?.errors?.['minlength'].requiredLength}}.
+          Now it is
+          {{form.get('password')?.errors?.['minlength'].actualLength}}
+        </span>
+      </div>
     </div>
 
-    <button class="btn btn-primary my-btn" type="button"
-            (click)="onSubmit(form.get('email')?.value)"
-            [disabled]="form.invalid" routerLink="/games-page">
+    <button
+      class="btn btn-primary my-btn" type="submit"
+      [disabled]="form.invalid || submitted">
       Sign in
     </button>
   </form>
+
+  <div class="alert alert-danger mt-2" *ngIf="auth.error | async as error">
+    {{error}}
+  </div>
 </div>
 

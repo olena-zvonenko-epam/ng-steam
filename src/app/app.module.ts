@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import {CommonModule} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/auth.guard';
 import { HeaderComponent } from './shared/header/header.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { GamesPageComponent } from './pages/games-page/games-page.component';
@@ -27,8 +29,8 @@ import { FilterByTagPipe } from './shared/filter-by-tag.pipe';
     ProfilePageComponent,
     GamesPageComponent,
     GameComponent,
-    LibraryPageComponent,
     GamesFilterPipe,
+    LibraryPageComponent,
     FriendsPageComponent,
     FriendComponent,
     PeopleFilterPipe,
@@ -43,7 +45,7 @@ import { FilterByTagPipe } from './shared/filter-by-tag.pipe';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

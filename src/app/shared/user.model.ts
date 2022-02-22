@@ -1,5 +1,13 @@
 export interface UserModel {
-  username?: string,
   email: string,
-  age?: string
+  password?: string,
+  username?: string,
+  age?: string,
+  returnSecureToken?: boolean
 }
+
+export interface FbAuthResponse {
+  idToken: string
+  expiresIn: string
+}
+

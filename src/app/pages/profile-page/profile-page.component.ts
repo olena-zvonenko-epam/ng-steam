@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../shared/user.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserModel} from "../../shared/user.model";
-import {FormControl, FormGroup} from "@angular/forms";
+import {UserService} from "../../shared/user.service";
 
 @Component({
   selector: 'app-profile-page',
@@ -9,27 +9,42 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./profile-page.component.scss']
 })
 export class ProfilePageComponent implements OnInit {
+  form!: FormGroup;
+  submitted: boolean = false;
+  message!: string;
+  user!: UserModel;
 
-  form = new FormGroup({
-    username: new FormControl(),
-    email: new FormControl(),
-    age: new FormControl(),
-  });
-
-  // form!: FormGroup;
-
-  user!: UserModel
-
-  constructor(private userService: UserService) { }
+  constructor(
+    private userServise: UserService
+  ) {}
 
   ngOnInit(): void {
-    this.user = this.userService.getUserData();
-    console.log(this.user.email);
+
+    this.form = new FormGroup({
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email
+      ]),
+      username: new FormControl(null),
+      age: new FormControl(null),
+    })
   }
 
-  onSave(form: FormGroup) {
-    this.userService.updateUserData(form.value)
+  submit() {
+    if (this.form.invalid) {
+      return;
+    }
 
+    this.submitted = true;
+
+    const user: UserModel = {
+      email: this.form.value.email,
+      username: this.form.value.username,
+      age: this.form.value.age,
+    };
+
+    this.userServise.getUser(user).subscribe(() => {
+      this.submitted = false;
+    })
   }
-
 }
