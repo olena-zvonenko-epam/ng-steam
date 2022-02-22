@@ -8,27 +8,31 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { HomePageComponent } from './pages/home-page/home-page.component';
+import { HeaderComponent } from './shared/header/header.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
-import { GamesComponent } from './pages/games/games.component';
-import { GameComponent } from './pages/games/game/game.component';
+import { GamesPageComponent } from './pages/games-page/games-page.component';
+import { GameComponent } from './pages/games-page/game/game.component';
 import { LibraryPageComponent } from './pages/library-page/library-page.component';
 import { GamesFilterPipe } from './shared/games-filter.pipe';
 import { FriendsPageComponent } from './pages/friends-page/friends-page.component';
 import { FriendComponent } from './pages/friends-page/friend/friend.component';
+import { PeopleFilterPipe } from './shared/people-filter.pipe';
+import { FilterByTagPipe } from './shared/filter-by-tag.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    HomePageComponent,
+    HeaderComponent,
     ProfilePageComponent,
-    GamesComponent,
+    GamesPageComponent,
     GameComponent,
     LibraryPageComponent,
     GamesFilterPipe,
     FriendsPageComponent,
-    FriendComponent
+    FriendComponent,
+    PeopleFilterPipe,
+    FilterByTagPipe
   ],
   imports: [
     BrowserModule,

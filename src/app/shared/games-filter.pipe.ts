@@ -24,5 +24,4 @@ export class GamesFilterPipe implements PipeTransform {
       });
     }
   }
-
 }

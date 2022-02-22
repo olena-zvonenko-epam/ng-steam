@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<div class="container">
+  <h4>Games</h4>
+
+  <form class="mb-3"
+        [formGroup]="form"
+        (submit)="filter(form.get('search')?.value)">
+    <label for="search">Search games</label>
+    <br>
+    <input type="text" id="search" style="width: 100%"
+           placeholder="Search games"
+           formControlName="search">
+  </form>
+
+  <h3>Featured Games</h3>
+  <div class="d-flex gap-3">
+    <div class="list-group" style="width:75%">
+      <app-game class="list-group-item"
+                *ngFor="let game of games
+                | gamesFilter: form.get('search')?.value: 'name'
+                | gamesFilter: rangeInputValue: 'price'"
+                [name]="game.name"
+                [price]="game.price"
+                [overview]="game.overview">
+        <button class="btn btn-primary"
+                (click)="addGame(game)">Add to library</button>
+      </app-game>
+    </div>
+
+    <div class="filters d-flex flex-column" style="width:25%">
+      <label for="filterByPrice">Filter by price</label>
+      <input type="range" id="filterByPrice" step="10"
+             [min]="getMinPrice(games)"
+             [max]="getMaxPrice(games)"
+             [(ngModel)]="rangeInputValue"
+      >
+      <p class="align-self-center">{{rangeInputValue}}</p>
+
+      <form [formGroup]="checkboxGroup" (change)="changeCheckbox($event)">
+        <label>Filter by tag</label>
+
+        <div  class="d-flex flex-column">
+          <label for="indie">
+            <input type="checkbox" id="indie" name="indie"
+                   formControlName="indie"
+            >
+            Indie
+          </label>
+
+          <label for="action">
+            <input type="checkbox" id="action" name="action"
+                   formControlName="action"
+            >
+            Action
+          </label>
+
+          <label for="adventure">
+            <input type="checkbox" id="adventure" name="adventure"
+                   formControlName="adventure"
+             >
+            Adventure
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
