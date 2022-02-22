@@ -145,6 +145,17 @@
     {
       "id": 4,
       "name": "Ashley"
+    },
+    {
+      "id": 4,
+      "name": "Dread Hunger",
+      "overview": "A game of survival and betrayal. Eight Explorers path their ship through the unforgiving Arctic. Among the crew, two traitors call on dark powers to undermine them.",
+      "price": 379,
+      "tags": [
+        "Indie",
+        "Action",
+        "Adventure"
+      ]
     }
   ]
 }
