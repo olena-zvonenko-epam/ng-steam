@@ -29,14 +29,6 @@ export class GamesService {
               .subscribe(gameItem => console.log(gameItem))
           }
         }
-
-        // if(gameItems.find(item => item.id === game.id)) {
-        //   return alert(`The game ${game.name} is already in the library` );
-        // } else {
-        //   alert(`The game ${game.name} was added to the library` );
-        //   return this.http.post(`${this.url}/library.json`, game)
-        //     .subscribe(gameItem => console.log(gameItem))
-        // }
       });
   }
 
