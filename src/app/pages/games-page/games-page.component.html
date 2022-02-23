@@ -37,31 +37,27 @@
       >
       <p class="align-self-center">{{rangeInputValue}}</p>
 
-      <form [formGroup]="checkboxGroup" (change)="changeCheckbox($event)">
+      <form (change)="filterByTag($event)">
         <label>Filter by tag</label>
+          <div  class="d-flex flex-column">
+            <label for="indie">
+              <input type="checkbox" id="indie" name="Indie"
+              >
+              Indie
+            </label>
 
-        <div  class="d-flex flex-column">
-          <label for="indie">
-            <input type="checkbox" id="indie" name="indie"
-                   formControlName="indie"
-            >
-            Indie
-          </label>
+            <label for="action">
+              <input type="checkbox" id="action" name="Action"
+              >
+              Action
+            </label>
 
-          <label for="action">
-            <input type="checkbox" id="action" name="action"
-                   formControlName="action"
-            >
-            Action
-          </label>
-
-          <label for="adventure">
-            <input type="checkbox" id="adventure" name="adventure"
-                   formControlName="adventure"
-             >
-            Adventure
-          </label>
-        </div>
+            <label for="adventure">
+              <input type="checkbox" id="adventure" name="Adventure"
+               >
+              Adventure
+            </label>
+          </div>
       </form>
     </div>
   </div>

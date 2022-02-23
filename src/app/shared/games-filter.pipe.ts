@@ -23,5 +23,15 @@ export class GamesFilterPipe implements PipeTransform {
           .toLowerCase().indexOf(searchItem.toLowerCase()) !== -1
       });
     }
+
+    if(fieldName === 'tags') {
+      console.log('tags')
+      return gamesList.filter(game => {
+        for (let tag of searchItem) {
+          if (game.tags.indexOf(tag) === -1) return false
+        }
+        return true
+      });
+    }
   }
 }

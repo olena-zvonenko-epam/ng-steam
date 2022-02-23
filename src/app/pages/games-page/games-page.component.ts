@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
 import {GameModel} from "../../shared/game.model";
@@ -15,17 +15,12 @@ export class GamesPageComponent implements OnInit {
   games = new Array<GameModel>();
   tags = new Array<string>();
 
+  @Input() checkboxTags!: Array<string>;
   @Input() searchValue!: string;
   @Input() rangeInputValue!: number;
 
   form = new FormGroup({
     search: new FormControl()
-  });
-
-  checkboxGroup = new FormGroup({
-    indie: new FormControl(),
-    action: new FormControl(),
-    adventure: new FormControl()
   });
 
   constructor(private gamesService: GamesService) { }
@@ -69,9 +64,25 @@ export class GamesPageComponent implements OnInit {
     return String(Math.max(...arr.map(item => item.price)));
   }
 
-  changeCheckbox(event: any) {
-    event.target.checked ?
-      this.tags.push(event.target.name) :
+  filterByTag(event: any) {
+    if(event.target.checked) {
+      this.tags.push(event.target.name);
+    } else {
       this.tags = this.tags.filter(tag => tag !== event.target.name);
+    }
+
+    this.getGames();
+
+    setTimeout(() => {
+      this.games = this.games.filter(game => {
+        for(let tag of this.tags) {
+          if(game.tags.indexOf(tag) === -1) return false
+        }
+        return true
+      });
+    }, 300)
+
+
   }
+
 }
