@@ -6,11 +6,11 @@ import {GameModel} from "./game.model";
 })
 export class FilterByTagPipe implements PipeTransform {
 
-  transform(gamesList: GameModel[], tags: any[]): any[] {
-    if(!gamesList.length || !tags.length) return gamesList;
+  transform(gamesList: GameModel[], tags: string[]): GameModel[] {
+
+    if(!tags.length) return gamesList;
 
     return gamesList.filter(game => {
-      console.log(tags);
       for(let tag of tags) {
         if(game['tags'].indexOf(tag) === -1) return false
       }
